@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import EventsAPI from "../services/EventsAPI";
 import Event from "../components/Event";
 import "../css/LocationEvents.css";
 
-const LocationEvents = ({ index }) => {
-    const [location, setLocation] = useState([]);
+const Events = () => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const eventsData = await EventsAPI.getEventsByLocation(index);
+                const eventsData = await EventsAPI.getAllEvents();
                 setEvents(eventsData);
             } catch (error) {
                 throw error;
@@ -22,20 +21,6 @@ const LocationEvents = ({ index }) => {
 
     return (
         <div className="location-events">
-            <header>
-                <div className="location-image">
-                    <img src={location.image} />
-                </div>
-
-                <div className="location-info">
-                    <h2>{location.name}</h2>
-                    <p>
-                        {location.address}, {location.city}, {location.state}{" "}
-                        {location.zip}
-                    </p>
-                </div>
-            </header>
-
             <main>
                 {events && events.length > 0 ? (
                     events.map((event, index) => (
@@ -51,7 +36,7 @@ const LocationEvents = ({ index }) => {
                 ) : (
                     <h2>
                         <i className="fa-regular fa-calendar-xmark fa-shake"></i>{" "}
-                        {"No events scheduled at this location yet!"}
+                        {"No events!"}
                     </h2>
                 )}
             </main>
@@ -59,4 +44,4 @@ const LocationEvents = ({ index }) => {
     );
 };
 
-export default LocationEvents;
+export default Events;
