@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EventsAPI from "../services/EventsAPI";
 import "../css/Event.css";
+import moment from "moment";
 
 const Event = (props) => {
     const [event, setEvent] = useState([]);
@@ -18,16 +19,14 @@ const Event = (props) => {
         })();
     }, []);
 
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             const result = await dates.formatTime(event.time);
-    //             setTime(result);
-    //         } catch (error) {
-    //             throw error;
-    //         }
-    //     })();
-    // }, [event]);
+    useEffect(() => {
+        const getTime = () => {
+            const formattedTime = moment(event.time, "HH:mm").format("hh:mm A");
+            setTime(formattedTime);
+        };
+
+        getTime();
+    }, [event]);
 
     // useEffect(() => {
     //     (async () => {
@@ -52,9 +51,9 @@ const Event = (props) => {
                     <h3>{event.title}</h3>
                     <p>
                         <i className="fa-regular fa-calendar fa-bounce"></i>{" "}
-                        {event.date} <br /> time
+                        {moment(event.date).format("MM/DD/YYYY")} <br /> {time}
                     </p>
-                    <p id={`remaining-${event.id}`}>remaining</p>
+                    {/* <p id={`remaining-${event.id}`}>remaining</p> */}
                 </div>
             </div>
         </article>
