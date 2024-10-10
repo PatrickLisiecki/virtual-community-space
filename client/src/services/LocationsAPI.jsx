@@ -16,16 +16,16 @@ const getAllLocations = async () => {
 };
 
 // Fetch a single location by ID
-const getLocationById = async (locationId) => {
+const getLocationById = async (id) => {
     try {
-        const response = await fetch(`${API_BASE_URL}/locations/${locationId}`);
+        const response = await fetch(`${API_BASE_URL}/locations/${id}`);
         if (!response.ok) {
-            throw new Error(`Failed to fetch location with id ${locationId}`);
+            throw new Error(`Failed to fetch location with id ${id}`);
         }
         const location = await response.json();
         return location;
     } catch (error) {
-        console.error(`Error fetching location ${locationId}:`, error);
+        console.error(`Error fetching location ${id}:`, error);
         return null;
     }
 };

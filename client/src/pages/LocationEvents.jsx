@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EventsAPI from "../services/EventsAPI";
+import LocationsAPI from "../services/LocationsAPI";
 import Event from "../components/Event";
 import "../css/LocationEvents.css";
 
@@ -8,6 +9,14 @@ const LocationEvents = ({ index }) => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
+        const fetchLocation = async () => {
+            try {
+                const locationData = await LocationsAPI.getLocationById(index);
+                setLocation(locationData);
+            } catch (error) {
+                throw error;
+            }
+        };
         const fetchEvents = async () => {
             try {
                 const eventsData = await EventsAPI.getEventsByLocation(index);
@@ -17,6 +26,7 @@ const LocationEvents = ({ index }) => {
             }
         };
 
+        fetchLocation();
         fetchEvents();
     }, []);
 
