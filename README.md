@@ -2,9 +2,9 @@
 
 Submitted by: **Patrick Lisiecki**
 
-About this web app: **A virtual community space with an interactive interface that allows users to explore events by location.**
+About this web app: **A virtual community space with an interactive interface that allows users to explore music events by venue location.**
 
-Time spent: **X** hours
+Time spent: **4** hours
 
 ## Required Features
 
@@ -12,13 +12,13 @@ The following **required** functionality is completed:
 
 <!-- Make sure to check off completed functionality below -->
 
-- [ ] **The web app uses React to display data from the API**
-- [ ] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
-  - [ ] **NOTE: Your GIF or a screenshot added to this README must include a view of your Railway database that shows the contents of the table used by your app**
-- [ ] **The web app displays the title of the app**
-- [ ] **A visual interface allows the user to select a Location they would like to view**
-- [ ] **Clicking on a Location shows a list of all items from the Events table that corresponds to that Location**
-- [ ] **Each Location detail page should have its own unique URL**
+- [X] **The web app uses React to display data from the API**
+- [X] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
+  - [X] **NOTE: Your GIF or a screenshot added to this README must include a view of your Railway database that shows the contents of the table used by your app**
+- [X] **The web app displays the title of the app**
+- [X] **A visual interface allows the user to select a Location they would like to view**
+- [X] **Clicking on a Location shows a list of all items from the Events table that corresponds to that Location**
+- [X] **Each Location detail page should have its own unique URL**
 
 The following **optional** features are implemented:
 
@@ -29,13 +29,21 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/PatrickLisiecki/virtual-community-space/blob/main/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with GeForce Experience and CloudConvert.
 
+## Railway Database
+
+Here's the pictures of the Railway PostgreSQL Database Tables:
+
+<img src='https://github.com/PatrickLisiecki/virtual-community-space/blob/main/db_1.png' title='Database 1' width='' alt='Database 1' />
+
+<img src='https://github.com/PatrickLisiecki/virtual-community-space/blob/main/db_2.png' title='Database 2' width='' alt='Database 2' />
+
 ## Notes
 
-Describe any challenges encountered while building the app or any additional context you'd like to add.
+I faced some challenges when implementing the location router and controller because I wasn't matching the variable name in the URL params.
 
 ## License
 
